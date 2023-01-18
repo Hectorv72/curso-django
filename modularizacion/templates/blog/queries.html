@@ -12,10 +12,15 @@
     {% for author in authors %}
       <li>{{ author.name }} ({{ author.email }})</li>
     {% endfor %}
-
-    
   </ul>
   <h3>Autores total:{{authors|length}}</h13>
   <div>{{author.email}}</div>
+
+  <h1>Autores filtered</h1>
+  <ul>
+    {% for author in filtered %}
+      <li>{{ author.name }} ({{ author.email }})</li>
+    {% endfor %}
+  </ul>
 </body>
 </html>
