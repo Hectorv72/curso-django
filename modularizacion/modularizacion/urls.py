@@ -21,4 +21,5 @@ urlpatterns = [
     path('comentarios/',include('comentarios.urls')),
     path('blog/',include('blog.urls')),
     path('relations/',include('relations.urls')),
+    path('formularios/',include('formularios.urls')),
 ]
