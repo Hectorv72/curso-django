@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .forms import CommentForm, ContactForm
+from .forms import CommentForm, ContactForm, EmployeeForm
 
 # Create your views here.
 
@@ -15,8 +15,15 @@ def comment(request):
 
 
 def widget(request):
-    contact_form = ContactForm()
-    return render(request=request, template_name='formularios/widget.html', context={'contact_form': contact_form})
+    if request.method != "POST":
+        contact_form = ContactForm()
+        return render(request=request, template_name='formularios/widget.html', context={'contact_form': contact_form})
+    else:
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            return HttpResponse('Los datos son validos')
+        else:
+            return render(request=request, template_name='formularios/widget.html', context={'contact_form': contact_form})
 
 
 def goal(request):
@@ -25,3 +32,8 @@ def goal(request):
         return render(request=request, template_name='formularios/success.html', context={'name': name})
     else:
         return HttpResponse('POST no es soportado en esta ruta')
+
+
+def index(request):
+    form = EmployeeForm()
+    return render(request=request, template_name='formularios/index.html', context={'form': form})

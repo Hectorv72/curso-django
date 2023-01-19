@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+
   <body>
-    <div>Formulario de clase</div>
-    <hr />
-    <form action="" method="POST">
-      <h3>formulario de contacto</h3>
-      {% csrf_token %} {{ contact_form.as_div }}
-      <input type="submit" value="Enviar" />
+    <div>Form</div>
+    <form action="" method="get">
+      <h3>formulario de employee</h3>
+      {{ form }}
+      <input type="submit" value="" />
     </form>
   </body>
 </html>
